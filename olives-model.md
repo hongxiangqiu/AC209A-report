@@ -1,3 +1,8 @@
+---
+title: Model
+notebook: olives-model.ipynb
+nav_include: 2
+---
 
 # Models
 
