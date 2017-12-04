@@ -1,6 +1,6 @@
 theme: jekyll-theme-primer
-title: Support Vector Olives
-description: Keeping Italian Olives Pure!
+title: Recommendations
+description: Recommendations project report
 baseurl:
 markdown: kramdown
 kramdown:
