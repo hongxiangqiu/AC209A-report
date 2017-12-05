@@ -13,8 +13,10 @@ nav_include: 3
 
 
 
+## Goal
 In this part, we want to select some models (serve as `something else of your choice`) to be integrated into the main ensemble model. In addition, we want to select good predictors we can use for content filtering based models {based on EDA, there will be too many predictors (after appropriate one-hot encoding) if we use all of them}.
 
+## Predictor Selection
 
 To be fair, all content filtering based models will use those predictors selected in this section. The selection is conducted on the training set. Then the selected columns will be used to filter meta-training set and test set.
 
@@ -642,8 +644,9 @@ X_train.head()
 
 
 
+## Item-based KNN
 
-## First, construct rating matrix
+**First, construct rating matrix**
 
 
 
@@ -668,7 +671,7 @@ reverse_business_id_encoding = df_to_matrix(X_train, y_train)
 ```
 
 
-## Then construct similarity matrix
+**Then construct similarity matrix**
 
 
 
@@ -713,6 +716,7 @@ X_test = X_test.drop(['user_id','business_id'],axis=1)
 ```
 
 
+## Ridge
 
 
 
@@ -734,6 +738,7 @@ print("Training MSE:",mean_squared_error(y_train,ridge.predict(X_train)))
     Training MSE: 1.1920708775
 
 
+## Lasso
 
 
 
@@ -755,6 +760,7 @@ print("Test MSE:",mean_squared_error(y_test,lasso.predict(X_test)))
     Test MSE: 1.05884926844
 
 
+## Fully Connected Neural Net
 
 We made the training and the test of the neural network as a separate Python script [here](src/nn.py). We used a three layer fully-connected network. We used some code in the Tensorflow MNIST tutorial [2] (https://www.tensorflow.org/get_started/mnist/pros) to implement our network.
 
@@ -823,6 +829,7 @@ with open('nn.log', 'r') as log:
     
 
 
+## KNN
 
 
 
@@ -844,6 +851,7 @@ print("Test MSE:",mean_squared_error(y_test,knn_content.predict(X_test)))
     Test MSE: 1.33215748925
 
 
+## Random Forest Regression
 
 
 
@@ -866,6 +874,7 @@ print("Test MSE:",mean_squared_error(y_test,rf.predict(X_test)))
     Test MSE: 1.057497711
 
 
+## Linear Support Vector Regression (SVR)
 
 SVR is very slow. As a work around, we use LinearSVR, which is suitable for large-scale data.
 
@@ -889,6 +898,7 @@ print("Test MSE:",mean_squared_error(y_test,svr.predict(X_test)))
     Test MSE: 49.3951528059
 
 
+## Conclusion
 
 We'll choose Ridge, Lasso and RandomForestRegressor to be integrated into our ensembled model. Let's save those models to binary.
 
