@@ -15,7 +15,7 @@ nav_include: 2
 
 ## Load Data
 
-Since the problem is sparse, we performed a stratified random sampling after joining, cleaning and filtering data. See [Data Procession](data-processing.html) page for the details about how we process data.
+Since the problem is sparse, we performed a stratified random sampling after joining, cleaning and filtering data. See [Data Sampling page](data-sampling.html) page for the details about how we process data.
 
 Then we perform [feature selection](model-exploration.html#predictor-selection) to select important predictors so we can make our content filtering based models work.
 
@@ -44,7 +44,7 @@ y_remaining = df_remaining.stars_review.values
 ### No regularization
 Solving the linear regression without regularization is hard since the system is under-determined ($X^TX$ is singular). An alternative is to set parameters to means. Given a dataset, we first calculate the mean of all ratings (denoted as $\hat{\mu}$). For each user $u$, we calculate the difference of the mean of all ratings he gives out and the global mean $\hat{\mu}$ (difference denoted as $\hat{\theta_u}$). For each business $m$, we calculate the difference of the mean of all ratings the business receives and the global mean $\hat{\mu}$ (difference denoted as $\hat{\gamma_m}$). The prediction of rating for user $u$ giving business $m$ would then be $\hat{\mu}+\hat{\theta_u}+\hat{\gamma_m}$.
 
-Since the implementation is not short, we put it [here](BaselineRegression.py) as a seperate Python script.
+Since the implementation is not short, we put it [here](/src/BaselineRegression.html) as a seperate Python script.
 
 
 
@@ -68,9 +68,9 @@ print("Test MSE:", reg.mse(X_test.loc[:,['business_id','user_id']].as_matrix(),y
 
 
 ### L2 Regularization
-This is same as fitting a `ridge` regression on **dummied predictors** `business_id` and `user_id`. The challenge of this regression is solving the sparse matrix. In the complete data, the `X` (dummied predictor) matrix will have around one million columns. Since ridge regression has closed form solution ($\beta=(X^TX+\lambda I)^{-1}X^Ty$, since we don't want to regularize intercept, the top-left element of $I$ should be set to 0), We solve the system with `scipy.spsolve`. Note here we have regularization terms, the system is solvable.
+This is same as fitting a `ridge` regression on **dummied predictors** `business_id` and `user_id`. The challenge of this regression is solving the sparse matrix. In the complete data, the `X` (dummied predictor) matrix will have around one million columns. Since ridge regression has closed form solution ($\beta=(X^TX+\lambda I)^{-1}X^Ty$, since we don't want to regularize intercept, the top-left element of $I$ should be set to 0), We tried to solve the system with `scipy.spsolve`. But it's really slow, so we use [sag](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html) instead.
 
-L2 Regularization is implemented in the same class as the previous regression model we put it ([Python script](BaselineRegression.py)). If $\alpha>0$, regularized regression model will be fit.
+L2 Regularization is implemented in the same class as the previous regression model we put it in the [Python script](src/BaselineRegression.html).
 
 
 

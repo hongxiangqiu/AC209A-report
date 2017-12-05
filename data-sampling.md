@@ -1,6 +1,6 @@
 ---
 title: Data Sampling
-notebook: data_sampling.ipynb
+notebook: data-sampling.ipynb
 nav_include: 4
 ---
 
