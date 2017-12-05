@@ -44,7 +44,7 @@ y_remaining = df_remaining.stars_review.values
 ### No regularization
 Solving the linear regression without regularization is hard since the system is under-determined ($X^TX$ is singular). An alternative is to set parameters to means. Given a dataset, we first calculate the mean of all ratings (denoted as $\hat{\mu}$). For each user $u$, we calculate the difference of the mean of all ratings he gives out and the global mean $\hat{\mu}$ (difference denoted as $\hat{\theta_u}$). For each business $m$, we calculate the difference of the mean of all ratings the business receives and the global mean $\hat{\mu}$ (difference denoted as $\hat{\gamma_m}$). The prediction of rating for user $u$ giving business $m$ would then be $\hat{\mu}+\hat{\theta_u}+\hat{\gamma_m}$.
 
-Since the implementation is not short, we put it [here](/src/BaselineRegression.html) as a seperate Python script.
+Since the implementation is not short, we put it [here](src/BaselineRegression.html) as a seperate Python script.
 
 
 
