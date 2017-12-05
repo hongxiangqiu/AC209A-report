@@ -4,11 +4,41 @@ title: Recommendations - Index
 
 This is the home page for the Group 9 project (recommendations) report.
 
-# Project Structure
+# Problem Statement and Motivation
+Suppose we have historical data for user's rating on restaurants, and now we want to give user suggestions of restaurants. In order to so, for a pair of user and restaurant (u, r), we want to predict the rating of the user given the restaurant on yelp: rating(u, r). And suggest user the restaurant that we predicted to be highest rated by him or her.
+
+# Introduction and Description of Data
+
+## Original dataset
+
+The original dataset consists of business data, user data, review data, and checkin data: all in form of json files. Business data contains location data, attributes, and categories, while user data contains friend mapping and other metadata of users. Checkin data contains number of checkins for each business. Review data contains full review text data including the user_id that wrote the review and the business_id the review is written for. 
+
+## Data Processing
+
+We first joined user and business data to review data, and then partitioned original data set into a subsample and heldout data. Where subsample contains restaurants that have more than 17 reviews and users that have more than 5 reviews. We did this to solve the sparsity problem of our dataset, where a restaurant/user that have very few reviews are likely to become noise in our baseline models. We will try to apply other models to solve these held out data.
+For the subsample we got, we further parition it into training, meta training, and test set.
+
+# Literature Review/Related Work
+
+## Matrix Factorization
+
+[1] http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.218.109&rep=rep1&type=pdf
+
+We used this paper to implement our matrix factorization model. We can construct the residual matrix from baseline models, and factorize the matrix into P and Q, where P contains latent features for users ((U,l) matrix, l is number of latent features) and Q contains latent features for business ((l,B) matrix). And we try to minimize squared loss on observed data, added by a regularization term. The paper also suggested an ALS approach to solve this problem.  
+
+## Item-based knn collaborative filtering
+
+[2] http://files.grouplens.org/papers/www10_sarwar.pdf
+
+We followed this paper to explore item-based knn cf model. According to the paper, we can define similairty of two business by using the correlation of reviews given by different users who have been to both restaruants. And we can predict the rating of a user to a restaurant by a weighted average of the the rating the user has given to other similar restaurants. 
+
+
+# Modeling Approach and Project Trajectory
 
 We first perform [EDA](eda.html) on a random sample of the entire dataset. Then we construct one training set, one meta-training set and one test set (three sets). Due to the sparseness of the original dataset, random sampling does not work. So we do special [data sampling](data-sampling.html). Two baseline regression models, the matrix factorization and some of models of our own choices are trained on the training set. We ensemble those models with stacking and the meta-regressor is trained on the meta-training set. The final model (ensembled) is evaluated on both the test set and the remaining set (data not contained in those three sets). Details of the modeling steps are in the [model page](model.html). Details about how we select our own models and how we select predictors are in [model exploration page](model-exploration.html).
 
 Please click the links for details
+
 
 # Results
 
