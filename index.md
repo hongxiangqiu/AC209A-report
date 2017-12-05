@@ -12,21 +12,30 @@ Please click the links for details
 
 # Results
 
-## Baseline Regression
-
-Training $R^2$: 0.11
-Test $R^2$: 0.03
-
-## Matrix Factorization
-
-Training $R^2$: 0.9
-Test $R^2$: 0.3
-
-## Ensemble Model (Final Model)
-
-Training $R^2$: 0.8
-Test $R^2$: 0.5
-Test $R^2$ on the remaining set: 0.39
++ BaseLine Regression (no regularization, use mean)
+  + (Training) $R^2$: 0.413268705482, MSE: 0.943767605504
+  + (Test) $R^2$: -0.0867599375195, MSE: 1.46768604971
++ BaseLine Regression (with L2 regularization, $\lambda$ chosen by cross-validation)
+  + (Training) $R^2$: 0.298990002089, MSE: 1.12758690962
+  + (Test) $R^2$: 0.133367873022, MSE: 1.17040004796
++ Matrix Factorization
+  + (Training) $R^2$: 0.299639269683, MSE: 1.12654255128
+  + (Test) $R^2$: 0.133367983645, MSE: 1.17039989857
++ Our own models (those included in the final model)
+  + Ridge
+    + (Training) $R^2$: 0.258900935955, MSE: 1.1920708775
+    + (Test) $R^2$: 0.226618647701, MSE: 1.1920708775
+  + Lasso
+    + (Training) $R^2$: 0.242634995273, MSE: 1.21823492915
+    + (Test) $R^2$: 0.21596654473, MSE: 1.05884926844
+  + Random Forest
+    + (Training) $R^2$: 0.782483160748, MSE: 0.349879661193
+    + (Test) $R^2$: 0.216967316301, MSE: 1.057497711
++ Final model (ensembled with random forest meta regressor)
+  + (Training) $R^2$: 0.2711184242, MSE: 1.16211937945
+  + (Test) $R^2$: 0.228895927942, MSE: 1.04138793708
+  + (Remaining) $R^2$: 0.448124242262, MSE: 1.20182656604
+  + (Whole set except training) $R^2$: 0.380203974883, MSE: 1.13440407154
 
 # Other Files
 Since methods implementations (e.g. matrix factorization) are long, we put them in seperate Python scripts.
