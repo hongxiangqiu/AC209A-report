@@ -285,4 +285,4 @@ for k in dict_keys:
 
 
 
-As a conclusion, many features have pretty strong correlations with the response (rating). Therefore, ensembling a content filtering based model is likely to improve the final model. Due to the page limitation, we can't put all of our plots in this report.
+As a conclusion, many features have pretty strong correlations with the response (rating). Therefore, ensembling a content filtering based model is likely to improve the final model.
