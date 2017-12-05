@@ -265,7 +265,7 @@ Test $R^2$ improved slightly compared to just regression alone
 ## Models of Our Own Choice
 For models of our own choice, we've tested `item-based KNN` (collaborative filtering), `ridge regression`, `lasso regression`, `fully connected neural network`, `KNN` (content filtering) and `random forest regression` and `Linear SVR`. Please refer to [Model Exploration](model-exploration.html) for details. `fully connected neural network` and `item-based KNN` are not covered in lectures.
 
-Predictors for those content filtering based models are carefully selected by `forward selection`. Details are in [Model Exploration (predictor selection)](model-exploration.html#predictor-selection) page.
+Predictors for those content filtering based models are carefully selected by `RFE`. Details are in [Model Exploration (predictor selection)](model-exploration.html#predictor-selection) page.
 
 We choose `ridge`, `lasso` and `random forest` as our own models since they give the best performance. We load the pre-trained models here from [Model Exploration](model-exploration.html) step.
 
