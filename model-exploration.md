@@ -449,7 +449,7 @@ Categorical: 'Dinner Theater', 'Buffets', 'Cafes', 'Asian Fusion', 'Vegetarian',
 
 Attributes: Alcohol, HasTV, NoiseLevel, RestaurantAttiere and WiFi
 
-Next, we write a function to extract those features from a given dataframe and make new dataset with only selected predictors (and ids for collaborative filtering). The implementation is in [filter_features.py](src/filter_features.py). We performed the feature extraction on the whole dataset. All our content-filtering based models will be trained and evaluated on the new dataset.
+Next, we write a function to extract those features from a given dataframe and make new dataset with only selected predictors (and ids for collaborative filtering). The implementation is in [filter_features.py](src/filter_features.html). We performed the feature extraction on the whole dataset. All our content-filtering based models will be trained and evaluated on the new dataset.
 
 
 
@@ -762,7 +762,7 @@ print("Test MSE:",mean_squared_error(y_test,lasso.predict(X_test)))
 
 ## Fully Connected Neural Net
 
-We made the training and the test of the neural network as a separate Python script [here](src/nn.py). We used a three layer fully-connected network. We used some code in the Tensorflow MNIST tutorial [2] (https://www.tensorflow.org/get_started/mnist/pros) to implement our network.
+We made the training and the test of the neural network as a separate Python script [here](src/nn.html). We used a three layer fully-connected network. We used some code in the Tensorflow MNIST tutorial [2] (https://www.tensorflow.org/get_started/mnist/pros) to implement our network.
 
 
 
