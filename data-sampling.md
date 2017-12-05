@@ -169,5 +169,5 @@ df_ex_train2.to_csv("subsample_3.csv", index=False) # test
 
 After sampling the data, we perform predictor selection on
 `subsample_1.csv` and then extract those predictors on all
-those sets using a [Python script](src/filter_features.py).
+those sets using a [Python script](src/filter_features.html).
 For details, see [model exploration page](model-exploration.html).
