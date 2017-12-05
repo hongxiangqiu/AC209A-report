@@ -101,6 +101,7 @@ Significantly improved test $R^2$ (negative to positive).
 
 We first construct the residual matrix by subtracting predicted values (from L2 reg model) from actual ratings. Then we factorize the residual matrix into P \* Q while minimizing (squared residual + alpha \* (sum of squared elements of P and Q)). To reduce running time we applied massive paralleization.
 
+Matrix Factorization is implemented in two seperate classes, one is the main skeleton of the algorithm [here](src/cfals.html) and the other contains the actual execution code with parallelization [here] (src/cfals_mp.html).
 
 
 ```python
