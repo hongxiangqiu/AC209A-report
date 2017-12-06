@@ -135,7 +135,7 @@ Main files
 + [EDA](eda.html)
 + [predictor and model selection](model-exploration.html)
 + [stratified data sampling](data-sampling.html)
-+ [modeling (main part)](model.html)
++ [modeling (main notebook)](model.html)
 + [complete jupyter notebook with all code](project_merged.html)
 + [references](references.html)
 
