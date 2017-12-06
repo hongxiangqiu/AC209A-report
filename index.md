@@ -15,6 +15,8 @@ Suppose we have historical data for user's rating on restaurants, and now we wan
 
 ## Introduction and Description of Data
 
+### Introduction
+
 One important feature provided by applications like yelp is to recommend restaurants to users. Usually a list of candidates are present, which are usally based on location, and how we should rank these candidates is an open question. Here we formulate this problem under typical machine learning framework: we have labeled inputs (user's reviews on restaurants), and we have some unlabeled input and we want to predict their labels. The main difficulty with this problem is that our data is very sparse. Through our EDA we have seen that many features might have some predictive power, so we are going to try to do some content filtering along with collaborative filtering and baseline models to have an ensemble model to solve this problem.
 
 ### Original dataset
