@@ -88,12 +88,19 @@ As our project goes, we successfully improved our test $R^2$ step by step. Our f
 
 As previously discussed. The high $R^2$ in remaining set is not likely to be valid. We think the real $R^2$ for predicting future data will be near $0.23$.
 
-## Other Files
-Since methods implementations (e.g. matrix factorization) are long, we put them in seperate Python scripts.
-+ Two Baseline Regression: [BaselineRegression.py](src/BaselineRegression.py)
-+ Matrix Factorization (ALS): [cfals.py](src/cfals.py)
+### Model Analysis
 
-We read those [references](reference.html) and their results in our project.
+Strength of the model: Collabrative filtering is commonly used in recommendation systems and the performance is good. However, in sparse problem like this project, it might not work well. In this case, content filtering based model is better. Our model is based on both collabrative filtering and content filtering and can take advantage of both. So we expect it to be robust.
+
+Weakness of the model: The data of this project is too sparse for the matrix factorization to work well and thus our final model doesn't give much weight to the matrix factorization result. The $R^2$ is not high enough. We suppose average rating for users and restaurants are known and meaningful in our model but this is not always true (for new users or some users rating only a few restaurants).
+
+### Future work
+
++ Clearly, we should collect more data to make the problem denser so that matrix factorization and all collabrative filtering based models can work better.
++ Neural networks are known to have good performance. We can try to make it work so we'll have better test $R^2$.
++ We should allow missing average rating and if the review count is too small, we consider the average rating is missing.
++ We have a model to predict the rating but not a full system yet. We can implement a system like mentioned in the discussion part.
++ We can do more feature engineering to find more meaningful predictors.
 
 ## Discussions
 ### How to Recommend Restaurants for Users
@@ -105,3 +112,22 @@ Now we have a model (final model) that predicts the rating given user informatio
 1. Sparseness of the data
 2. Too many predictors (for content-based filtering) after appropriate one-hot encoding
 3. Training on a large dataset takes long time
+
+## Files
+
+Please click the links to go to files you are interested in.
+
+Main files
++ [EDA](eda.html)
++ [predictor and model selection](model-exploration.html)
++ [stratified data sampling](data-sampling.html)
++ [modeling (main part)](model.html)
++ [complete jupyter notebook with all code](project_merged.html)
++ [references](references.html)
+
+Since methods implementations (e.g. matrix factorization) are long, we put them in seperate Python scripts.
++ Two Baseline Regression: [BaselineRegression.py](src/BaselineRegression.html)
++ Matrix Factorization (ALS): [cfals.py](src/cfals.html).
++ Matrix Factorization Parallelization [cfals_mp.py](src/cfals_mp.html).
++ Feature Filtering: [filter_features.py](src/filter_features.html)
++ Neural Net: [nn.py](src/nn.py)
