@@ -982,12 +982,16 @@ def filter_features(old_df):
     return new_df
 
 old = pd.read_csv('subsample_1.csv',memory_map=True)
+new = filter_features(old)
 new.to_csv('subsample_training.csv', index=False)
 old = pd.read_csv('subsample_2.csv',memory_map=True)
+new = filter_features(old)
 new.to_csv('subsample_meta_training.csv', index=False)
 old = pd.read_csv('subsample_3.csv',memory_map=True)
+new = filter_features(old)
 new.to_csv('subsample_test.csv', index=False)
 old = pd.read_csv('filtered_out.csv',memory_map=True)
+new = filter_features(old)
 new.to_csv('remaining.csv', index=False)
 ```
 
