@@ -59,6 +59,8 @@ Please click the links for details
 
 As our project goes, we successfully improved our test $R^2$ step by step. Our final model is an ensemble model built upon the collabrative filtering regularized regression, matrix factorization, content filtering based ridge and lasso regression and random forest regression (content filtering based). The **meta-regressor is random forest**. Our final model yields $R^2=0.38$ **on the whole dataset excluding the training set**. The test $R^2$ is $0.23$. The difference of two $R^2$ is caused by the `remaining` set. Those are data where each user or restaurant are seldomly seen and therefore, their average ratings have very strong correlation with the actual rating (response). In this case, our content-filtering based models will be 'extremely' accurate. However, in real world, if a user or restaurant is so inactive, we won't know their average rating. So we think it's more reasonable to say our model will have $R^2 \approx 0.23$ on predicting future data although the whole set $R^2=0.38$.
 
+Since rating has a range of $[1,5]$, we tried to set all values of the final model output below 1 to 1 and all values above 5 to 5 by `min(max(1,x),5)`. However, this gives a same test $R^2$, which means our final model already learned this knowledge.
+
 Detailed project summary can be found [here](model.html#project-summary)
 
 ### All Results
