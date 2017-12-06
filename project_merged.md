@@ -2,6 +2,11 @@
 title: Project Combined Notebook
 ---
 
+# Contents
+{:.no_toc}
+*  
+{: toc}
+
 # Project Jupyter Notebook - Combined
 
 *Group 9 - Zeyu Zhao, Hongxiang Qiu, Shiyu Huang*
