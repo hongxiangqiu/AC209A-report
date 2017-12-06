@@ -10,13 +10,15 @@ Suppose we have historical data for user's rating on restaurants, and now we wan
 
 ## Introduction and Description of Data
 
+One important feature provided by applications like yelp is to recommend restaurants to users. Usually a list of candidates are present, which are usally based on location, and how we should rank these candidates is an open question. Here we formulate this problem under typical machine learning framework: we have labeled inputs (user's reviews on restaurants), and we have some unlabeled input and we want to predict their labels. The main difficulty with this problem is that our data is very sparse. Through our EDA we have seen that many features might have some predictive power, so we are going to try to do some content filtering along with collaborative filtering and baseline models to have an ensemble model to solve this problem.
+
 ### Original dataset
 
 The original dataset consists of business data, user data, review data, and checkin data: all in form of json files. Business data contains location data, attributes, and categories, while user data contains friend mapping and other metadata of users. Checkin data contains number of checkins for each business. Review data contains full review text data including the user_id that wrote the review and the business_id the review is written for. 
 
 ### Data Processing
 
-We first joined user and business data to review data, and then partitioned original data set into a subsample and heldout data. Where subsample contains restaurants that have more than 17 reviews and users that have more than 5 reviews. We did this to solve the sparsity problem of our dataset, where a restaurant/user that have very few reviews are likely to become noise in our baseline models. We will try to apply other models to solve these held out data.
+We first joined user and business data to review data, and then partitioned original data set into a subsample and heldout data. Where subsample contains restaurants that have no less than 16 reviews and users that have no less than 6 reviews. We did this to solve the sparsity problem of our dataset, where a restaurant/user that have very few reviews are likely to become noise in our baseline models. We will try to apply other models to solve these held out data.
 For the subsample we got, we further parition it into training, meta training, and test set.
 
 ## Literature Review/Related Work
