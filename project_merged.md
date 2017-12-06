@@ -1190,10 +1190,6 @@ X_train.head()
 # Modeling
 ## Load Data
 
-Since the problem is sparse, we performed a stratified random sampling after joining, cleaning and filtering data. See [Data Procession](data-processing.html) page for the details about how we process data.
-
-Then we perform [feature selection](model-exploration.html#predictor-selection) to select important predictors so we can make our content filtering based models work.
-
 Here, we just load our pre-processed data. The training set is used to train all base models. The meta training set is used to train the meta regressor (ensembling). The test set is used to evaluate our models and the remaining set is all data that's not suitable to train our model (either user or restaurant appears too few times). Though we'll evaluate our final model on the remaining set.
 
 
