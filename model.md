@@ -580,6 +580,15 @@ print("Entire sets except training - Size:", len(y_not_train))
     Entire sets except training MSE: 1.13440407154
     Entire sets except training - Size: 2116329
 
+## Project Summary
+
+In this project, we first perform EDA on a subsample of the data. Then we filter out restaurants and users that appear less than a certain amount of times. After that we do a stratified random sampling to generate `training`, `meta_training` and `test` sets. We perform `RFE` on `training` set to select some useful features (will be used for content-filtering based model).
+
+For modeling, we first try baseline regression (regularized) on `business_id` and `user_id`. Then, we apply matrix factorization to fit the residual. The problem is really sparse and matrix factorization easily overfits. We have to set a large regularization term but then the improvement of the model is not significant. Our matrix factorization result is similar to the result of regression. However, we expect a better performance of matrix factorization on a denser problem.
+
+For something else of our own choice, we tried `item-based KNN` (collaborative filtering), `ridge regression`, `lasso regression`, `fully connected neural network`, `KNN` (content filtering) and `random forest regression` and `Linear SVR`. We pick `ridge`, `lasso` and `random forest` as they achieve higher validation $R^2$ score.
+
+Finally, we ensemble the model using `random forest`. The overall $R^2$ for the final model (all data except training set) is $0.38$. The test $R^2$ for the final model (on test set) is $0.23$. This gap is caused by those seldomly seen users and businesses whose average ratings have strong correlations with the response (rating) so the content filtering based model will be very good. Therefore, we expect the true $R^2$ of our model in future data to be near $0.23$.
 
 ## How to Recommend Restaurants for Users
 
