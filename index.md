@@ -4,6 +4,11 @@ title: Recommendations - Main Report
 
 This is the main report page for the Group 9 project (recommendations). **All important information is included in this single page**. For implementation of all **required** tasks, see [modeling](model.html) page. Other pages contain details of sub-tasks like [EDA](eda.html), [predictor and model selection](model-exploration.html) and [stratified sampling](data-sampling.html). The merged jupyter notebook (containing all code and documentation) can be found [here](project_merged.html)
 
+## Contents
+{:.no_toc}
+*  
+{: toc}
+
 ## Problem Statement and Motivation
 
 Suppose we have historical data for user's rating on restaurants, and now we want to give user suggestions of restaurants. In order to so, for a pair of user and restaurant (u, r), we want to predict the rating of the user given the restaurant on yelp: rating(u, r). And suggest user the restaurant that we predicted to be highest rated by him or her.
