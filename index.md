@@ -107,7 +107,7 @@ Detailed project summary can be found [here](model.html#project-summary)
   + (Remaining) $R^2$: 0.448124242262, MSE: 1.20182656604
   + (Whole set excluding training) $R^2$: 0.380203974883, MSE: 1.13440407154
 
-As previously discussed. The high $R^2$ in remaining set is not likely to be valid. We think the real $R^2$ for predicting future data will be near $0.23$.
+As previously discussed. The high $R^2$ in remaining set is not likely to be valid. We think the real $R^2$ for predicting future data will be near $0.23$ rather than $0.38$.
 
 ### Model Analysis
 
