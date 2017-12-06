@@ -1354,7 +1354,7 @@ Significantly improved test $R^2$ (negative to positive).
 
 ## Matrix Factorization
 
-We first construct the residual matrix by subtracting predicted values (from L2 reg model) from actual ratings. Then we factorize the residual matrix into P \* Q while minimizing (squared residual + alpha \* (sum of squared elements of P and Q)). i.e. $$\sum_{(u,i)}{(r_{ui}-p_u^Tq_i)^2+\alpha(\| p_u\|^2+\| q_i\|^2)}$$. And to solve it we alternating from fixing P and solve for Q and fixing Q and solve for P. (each is a solvable least square problem). To reduce running time we applied massive paralleization.
+We first construct the residual matrix by subtracting predicted values (from L2 reg model) from actual ratings. Then we factorize the residual matrix into P \* Q while minimizing (squared residual + alpha \* (sum of squared elements of P and Q)). i.e. $$\sum_{(u,i)}{(r_{ui}-p_u^Tq_i)^2+\alpha(\| p_u\|^2+\| q_i\|^2)}$$. And to solve it we alternating from fixing P and solve for Q and fixing Q and solve for P. (each is a solvable least square problem). To reduce running time we applied massive parallelization.
 
 
 
@@ -2194,7 +2194,7 @@ We'll choose Ridge, Lasso and RandomForestRegressor to be integrated into our en
 
 ## Ensemble
 
-We want to combine weighted regression, matrix factorization and the model of our own choice. We treat those three models as base learner and fit a meta-regressor (stacking).
+We want to combine regularized regression, matrix factorization and the model of our own choice. We treat those three models as base learner and fit a meta-regressor (stacking).
 
 Idealy, if we have `N` data points, we should train our base learners on `N-1` data points and generate predictions for the left out data point. The process should be repeated for `N` times to get base learner prediction for all `N` points. However, since the training dataset is really large, using the ideal method will take ages. As a workaround, we split a seperate training set (`meta_train`) from the test set and use `meta_train` to train the meta-regressor. The meta-regressors we will test are `ridge`, `KNN` and `RandomForestRegressor`
 
