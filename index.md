@@ -23,7 +23,7 @@ For the subsample we got, we further parition it into training, meta training, a
 
 ## Literature Review/Related Work
 
-For a full list of references, please refer to [this page](reference.html). Below are the references for implementing methods not covered in lecture (AC209A requirement).
+For a full list of references, please refer to [this page](references.html). Below are the references for implementing methods not covered in lecture (AC209A requirement).
 
 ### Matrix Factorization
 
