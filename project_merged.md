@@ -1354,7 +1354,7 @@ Significantly improved test $R^2$ (negative to positive).
 
 ## Matrix Factorization
 
-We first construct the residual matrix by subtracting predicted values (from L2 reg model) from actual ratings. Then we factorize the residual matrix into P \* Q while minimizing (squared residual + alpha \* (sum of squared elements of P and Q)). To reduce running time we applied massive paralleization.
+We first construct the residual matrix by subtracting predicted values (from L2 reg model) from actual ratings. Then we factorize the residual matrix into P \* Q while minimizing (squared residual + alpha \* (sum of squared elements of P and Q)). i.e. $$\sum_{(u,i)}{(r_{ui}-p_u^Tq_i)^2+\alpha(\| p_u\|^2+\| q_i\|^2)}$$. And to solve it we alternating from fixing P and solve for Q and fixing Q and solve for P. (each is a solvable least square problem). To reduce running time we applied massive paralleization.
 
 
 
