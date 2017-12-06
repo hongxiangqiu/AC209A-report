@@ -70,16 +70,28 @@ As our project goes, we successfully improved our test $R^2$ step by step. Our f
 + Matrix Factorization
   + (Training) $R^2$: 0.299639269683, MSE: 1.12654255128
   + (Test) $R^2$: 0.133367983645, MSE: 1.17039989857
-+ Our own models (those included in the final model)
-  + Ridge
++ Our own models (**bold** models are included in the final model)
+  + Item-based KNN
+    + Failed to work. See details [here](model-exploration.html#item-based-knn)
+  + Neural Net
+    + (Training) $R^2$: 0.080833
+    + (Test) $R^2$: 0.068026
+  + **Ridge**
     + (Training) $R^2$: 0.258900935955, MSE: 1.1920708775
     + (Test) $R^2$: 0.226618647701, MSE: 1.1920708775
-  + Lasso
+  + **Lasso**
     + (Training) $R^2$: 0.242634995273, MSE: 1.21823492915
     + (Test) $R^2$: 0.21596654473, MSE: 1.05884926844
-  + Random Forest
+  + **Random Forest**
     + (Training) $R^2$: 0.782483160748, MSE: 0.349879661193
     + (Test) $R^2$: 0.216967316301, MSE: 1.057497711
+  + KNN
+    + (Training) $R^2$: 0.103936211431, MSE: 1.44133436212
+    + (Test) $R^2$: 0.0135932748919, MSE: 1.33215748925
+  + LinearSVR (Use default sklearn parameters. Surprised by its bad performance)
+    + (Training) $R^2$: -10.3161445972, MSE: 18.2022175907
+    + (Test) $R^2$: -35.5750380933, MSE: 49.3951528059
+    
 + Final model (ensembled with random forest meta regressor)
   + (Training) $R^2$: 0.2711184242, MSE: 1.16211937945
   + (Test) $R^2$: 0.228895927942, MSE: 1.04138793708
@@ -130,4 +142,4 @@ Since methods implementations (e.g. matrix factorization) are long, we put them 
 + Matrix Factorization (ALS): [cfals.py](src/cfals.html).
 + Matrix Factorization Parallelization [cfals_mp.py](src/cfals_mp.html).
 + Feature Filtering: [filter_features.py](src/filter_features.html)
-+ Neural Net: [nn.py](src/nn.py)
++ Neural Net: [nn.py](src/nn.html)
