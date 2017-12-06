@@ -1,4 +1,9 @@
-The use the same reference format as the project guideline.
+---
+title: references
+nav_include: 5
+---
+
+We use the same reference format as the project guideline.
 
 We read the following papers / websites for our project:
 + How the Netflix prize was won, [http://blog.echen.me/2011/10/24/winning-the-netflix-prize-a-summary/](http://blog.echen.me/2011/10/24/winning-the-netflix-prize-a-summary/)
