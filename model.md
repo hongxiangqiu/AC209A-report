@@ -563,6 +563,9 @@ print("Remaining Set Size:", len(y_meta_remaining))
 
 Our meta-regressor successfully improves the test $R^2$ score on the test set. We know collaborative filtering methods (like matrix factorization) does not work on the `remaining` set. But since we also have content filtering based methods, we can predict pretty well on the `remaining` set. Since the `remaining` set has size `1226966`, the high $R^2$ is not likely by random.
 
+
+**Since rating has a range of $[1,5]$, we tried to set all values below 1 to 1 and all values above 5 to 5 by `min(max(1,x),5)`. However, this gives a same test $R^2$, which means our final model already learned this knowledge.**
+
 We try to predict on all data except training.
 
 
