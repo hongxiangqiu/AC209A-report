@@ -23,18 +23,25 @@ For the subsample we got, we further parition it into training, meta training, a
 
 ## Literature Review/Related Work
 
+For a full list of references, please refer to [this page](reference.html). Below are the references for implementing methods not covered in lecture (AC209A requirement).
+
 ### Matrix Factorization
 
-[1] http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.218.109&rep=rep1&type=pdf
+[1] Scalable Collaborative Filtering with Jointly Derived Neighborhood Interpolation Weights, [http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.218.109&rep=rep1&type=pdf](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.218.109&rep=rep1&type=pdf)
 
 We used this paper to implement our matrix factorization model. We can construct the residual matrix from baseline models, and factorize the matrix into P and Q, where P contains latent features for users ((U,l) matrix, l is number of latent features) and Q contains latent features for business ((l,B) matrix). And we try to minimize squared loss on observed data, added by a regularization term. The paper also suggested an ALS approach to solve this problem.  
 
 ### Item-based knn collaborative filtering
 
-[2] http://files.grouplens.org/papers/www10_sarwar.pdf
+[2] Item-Based Collaborative Filtering Recommendation Algorithms, [http://files.grouplens.org/papers/www10_sarwar.pdf](http://files.grouplens.org/papers/www10_sarwar.pdf)
 
 We followed this paper to explore item-based knn cf model. According to the paper, we can define similairty of two business by using the correlation of reviews given by different users who have been to both restaruants. And we can predict the rating of a user to a restaurant by a weighted average of the the rating the user has given to other similar restaurants. 
 
+### Neural Network
+
+[3] Deep MNIST for Experts, [https://www.tensorflow.org/get_started/mnist/pros](https://www.tensorflow.org/get_started/mnist/pros)
+
+We followed this website tutorial to implement our own fully connected neural network (content filtering based).
 
 ## Modeling Approach and Project Trajectory
 
