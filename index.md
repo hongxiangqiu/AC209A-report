@@ -2,6 +2,8 @@
 title: Recommendations - Main Report
 ---
 
+*Group 9 - Zeyu Zhao, Hongxiang Qiu, Shiyu Huang*
+
 This is the main report page for the Group 9 project (recommendations). **All important information is included in this single page**. For implementation of all **required** tasks, see [modeling](model.html) page. Other pages contain details of sub-tasks like [EDA](eda.html), [predictor and model selection](model-exploration.html) and [stratified sampling](data-sampling.html). The merged jupyter notebook (containing all code and documentation) can be found [here](project_merged.html)
 
 ## Contents
