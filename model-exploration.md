@@ -900,7 +900,7 @@ print("Test MSE:",mean_squared_error(y_test,svr.predict(X_test)))
 
 ## Conclusion
 
-We'll choose Ridge, Lasso and RandomForestRegressor to be integrated into our ensembled model. Let's save those models to binary.
+We'll choose Ridge, Lasso and RandomForestRegressor, together with regularized regression (baseline) and matrix factorization to be integrated into our final ensembled model. Let's save those models to binary.
 
 
 
