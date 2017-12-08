@@ -2190,11 +2190,11 @@ print("Test MSE:",mean_squared_error(y_test,svr.predict(X_test)))
 
 ### Conclusion
 
-We'll choose Ridge, Lasso and RandomForestRegressor to be integrated into our ensembled model.
+We'll choose Ridge, Lasso and RandomForestRegressor, together with regularized regression (baseline) and matrix factorization to be integrated into our ensembled model.
 
 ## Ensemble
 
-We want to combine regularized regression, matrix factorization and the model of our own choice. We treat those three models as base learner and fit a meta-regressor (stacking).
+We want to combine regularized regression, matrix factorization and the three models of our own choice. We treat those five models as base learner and fit a meta-regressor (stacking).
 
 Idealy, if we have `N` data points, we should train our base learners on `N-1` data points and generate predictions for the left out data point. The process should be repeated for `N` times to get base learner prediction for all `N` points. However, since the training dataset is really large, using the ideal method will take ages. As a workaround, we split a seperate training set (`meta_train`) from the test set and use `meta_train` to train the meta-regressor. The meta-regressors we will test are `ridge`, `KNN` and `RandomForestRegressor`
 
